@@ -1,0 +1,1 @@
+"client" is for React. "views" is for ejs. "public" is for supplementing ejs.

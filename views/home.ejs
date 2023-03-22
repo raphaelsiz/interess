@@ -1,0 +1,46 @@
+<!-- this will only show if logged in! main page goes here if logged in, to login.ejs if not-->
+<!DOCTYPE html>
+<html class="<%=prefs.theme%>">
+    <head>
+        <title>interess home</title>
+        <link href="home.css" rel="stylesheet">
+        <!--document.querySelector(':root').className = "dark"-->
+    </head>
+    <body>
+        <%- include('./partials/navbar', {topics: user.topics, url: ''}) %>
+        <div id="root">
+            <%- include('./partials/newPost',{url: '/posts/new'}) %>
+        <% for (let topic of user.topics) { %>
+            <a href="<%="/topics/" + topic.url%>">
+                <div class="topic">
+                    <h3><%=topic.url%></h3>
+                </div>
+            </a>
+        <% } %>
+        <h1>testing</h1>
+        <h1>just making it scroll</h1>
+        <h1>to see what happens to the navbar etc</h1>
+        <h1>wow how do I need more than that</h1>
+        <h1>that's already so many h1s</h1>
+        <h1>I just need to add the feed so then it's all the posts</h1>
+        <h1>oh but I deleted all the posts to fix the geoLocation whoops</h1>
+        <h1>please tell me this is enough to fill the screen vertically</h1>
+        </div>
+        <div>
+            <iframe src="/users/swipe" id="swipe" tabindex="10"></iframe>
+        </div>
+        <!--%- include('./partials/swipe') %-->
+        <script>
+        
+        function colorTheme(theme) {
+            let root = document.querySelector(':root')
+            if (theme) return root.className = theme;
+            root.className = (root.className == 'dark') ? 'light' : 'dark';
+            //todo: send in http request to tell the server to update prefs
+        }
+        navigator.geolocation.getCurrentPosition(pos=>{
+            document.cookie = `geoLocation=${JSON.stringify({latitude: pos.coords.latitude, longitude: pos.coords.longitude})}`
+        })
+        </script>
+    </body>
+</html>

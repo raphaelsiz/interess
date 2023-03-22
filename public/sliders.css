@@ -1,0 +1,81 @@
+.range {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+}
+p {color: red}
+input[type=range] {
+    border: 1px dotted black;
+    
+    --bg-color: transparent;
+    --val-color: transparent;
+}
+.left {
+    --bg-color: blue;
+    --val-color: white;
+  }
+  .right {
+    --bg-color: transparent;
+    --val-color: blue;
+    /*opacity: .5;*/
+  }
+
+/*generated with Input range slider CSS style generator (version 20211225)
+https://toughengineer.github.io/demo/slider-styler*/
+
+input[type=range].styled-slider {
+    grid-area: 1 / 2 / 1 / 2;
+    
+  }
+  .top {
+    opacity: 0.1;
+  }
+  
+  /*Chrome*/
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      -webkit-appearance: none;
+      height: 10px;
+      background-color: var(--bg-color);
+    }
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: var(--val-color);
+      margin-top: -1px;
+    }
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: #434343;
+      color: var(--val-color);
+    }
+  }
+  
+  
+  /** FF*/
+  
+  input[type="range"]::-moz-range-progress {
+    background-color: var(--val-color);
+    height: 10px;
+  }
+  
+  input[type="range"]::-moz-range-track {
+    background-color: var(--bg-color)
+  }
+  
+  
+  /* IE*/
+  
+  input[type="range"]::-ms-fill-lower {
+    background-color: #43e5f7;
+  }
+  
+  input[type="range"]::-ms-fill-upper {
+    background-color: #9a905d;
+  }
+  

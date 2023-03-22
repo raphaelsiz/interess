@@ -1,0 +1,70 @@
+<link href="<%=css%>" rel="stylesheet">
+<form method="post" action="<%=url%>/preferences">
+    <label>Distance at which you can see posts:
+        <br>
+        <div class="range" id="postViewDistance">
+            <input type="number" class="min" name="postViewDistanceMin" value="<%=prefs.postViewDistance.min%>">
+            <input type="range" id="postViewDistanceMin" min="0" max="20038" class="styled-slider left" value="<%=prefs.postViewDistanceMin%>">
+            <input type="range" id="postViewDistanceMax" min="0" max="20038" class="styled-slider right"  value="<%=prefs.postViewDistanceMax%>">
+            <input tabIndex="-1" type="range" min="0" max="20038" class="styled-slider top" value="<%=prefs.postViewDistanceMax%>">
+            <input type="number" class="max" name="postViewDistanceMax" value="<%=prefs.postViewDistance.max%>">
+            <input type="submit">
+        </div>
+    </label>
+    <label>Distance at which others can see your posts: 
+        <br>
+        <div class="range" id="test"><input type="range" class="styled-slider"></div>
+    </label>
+    <% if (""=="") {%>
+        <label>Distance for matches*: </label>
+        <p>All of the post-related preferences are able to be configured at a topic level as well.</p>
+        <p>*If you like someone, they can like you back no matter how far away you are!</p>
+    <% } else { %><p>These preferences only apply when you're on <%=url%></p><% } %>
+    <script>
+    let selected;
+    for (let input of document.querySelectorAll('.styled-slider.top')){
+        let id = input.parentElement.id;
+        let left = document.querySelector(`#${id} .styled-slider.left`);
+        let right = document.querySelector(`#${id} .styled-slider.right`);
+        if (!selected) selected = left;
+        input.addEventListener('click',e=>{
+            let val = parseInt(input.value);
+            let low = parseInt(left.value) + 10;
+            let high = parseInt(right.value) - 10;
+            if (val >= low + (high - low)/2) {
+                selected = right;
+                right.focus();
+            } else {
+                selected = left;
+                left.focus();
+            }
+        })
+        input.addEventListener('input',e=>{
+            let val = parseInt(input.value);
+            let low = parseInt(left.value) + 10;
+            let high = parseInt(right.value) - 10;
+            if (val >= high) {
+                right.value = val;
+                selected = right;
+                right.focus()
+            } else if (val <= low) {
+                left.value = val;
+                selected = left;
+                left.focus();
+            }
+            else selected.value = val;
+        })
+    }
+    for (let input of document.querySelectorAll('.styled-slider:not(.top')) {
+        let id = input.parentElement.id;
+        let slider = document.querySelector(`#${id} .styled-slider.top`)
+        input.addEventListener('input',e=>{
+            let left = document.querySelector(`#${id} .styled-slider.left`);
+        let right = document.querySelector(`#${id} .styled-slider.right`);
+
+            slider.value = e.target.value;
+            if (input.classList.contains("left") &&""==""){}
+        })
+    }
+    </script>
+</form>

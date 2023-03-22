@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit profile - <%=user.username%></title>
+    </head>
+    <body>
+        <form method="post" action="/users/edit">
+            <label>Username: <input type="text" name="username"></label>
+            <label>Biography: <textarea name="bio"></textarea></label>
+        </form>
+    </body>
+</html>

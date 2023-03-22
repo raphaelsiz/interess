@@ -1,0 +1,45 @@
+:root.light {
+    --text-color: black;
+    color: black;
+    --main-bg: aliceblue;
+    --second-bg: cornflowerblue;
+    --link-color: blue;
+}
+:root.dark {
+    --text-color: white;
+    color: white;
+    --main-bg: darkblue;
+    --second-bg: blue;
+    --link-color: cornflowerblue;
+}
+html {
+    height: 100%
+}
+body {
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+#root {
+    grid-area: 1 / 3 / 1 / 2;
+    overflow-y: scroll;
+}
+#navbar {
+    grid-area: 1 / 1 / 1 / 1;
+    margin: 0;
+    list-style: none;
+}
+#swipe {
+    grid-area: 1 / 3 / 1 / 6;
+    border: none;
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+}
+
+a {
+    color: var(--link-color);
+}

@@ -1,0 +1,14 @@
+<div>
+    <% if (post) {%>
+    <h3><%=post.title%></h3>
+    <h4><%=post.user%><!--todo: get user username--></h4>
+    <div><%-post.body%></div> <!--warning!!! this will let people do HTML if you don't make sure it's escaped!!!
+    okay so it doesn't escape it with a textfield so gotta do editable div but even then it's dicey because people can edit the HTML in the console
+    so idk what to do here-->
+    <div>
+        <% for (let comment of post.comments) { %>
+            <p><%=comment.toString()%></p>
+        <% } %>
+    </div>
+    <%}%>
+</div>

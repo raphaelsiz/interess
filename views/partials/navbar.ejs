@@ -1,0 +1,11 @@
+<ul id="navbar">
+    <li><details>
+        <summary>My Topics</summary>
+            <% for (let topic of topics) { %>
+                <li><a href="<%=url%>/topics/<%=topic.url%>"><%=topic.url%></a></li>
+            <% } %>
+    </details></li>
+    <li><a href="<%=url%>/posts/nearme">Near Me</a></li>
+    <li><a href="<%=url%>/"></a>My Feed</li>
+    <li><form method="post" action="<%=url%>/users/logout"><input type="submit" value="Log Out"></form></li>
+</ul>

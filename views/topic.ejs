@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%=topic.url%> - interess</title>
+    </head>
+    <body>
+        <div id="root">
+            <%- include('./partials/newPost',{url: '/posts/new'}) %>
+            <% for (let post of posts) { %>
+            <p><%- include('./partials/post',{post}) %></p>
+            <% } %>
+        </div>
+        <%- include('./partials/swipe') %>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+
+> interess@1.0.0 dev
+> npm run open & npm run nm
+
+
+> interess@1.0.0 open
+> start /max http://localhost:3002
+
+
+> interess@1.0.0 nm
+> nodemon index.js
+
+[33m[nodemon] 2.0.20[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node index.js`[39m
+{
+  user: 'shhpfjoe53sepvhm@ethereal.email',
+  pass: 'SuSr8xeEQSmwTyTkCT',
+  smtp: { host: 'smtp.ethereal.email', port: 587, secure: false },
+  imap: { host: 'imap.ethereal.email', port: 993, secure: true },
+  pop3: { host: 'pop3.ethereal.email', port: 995, secure: true },
+  web: 'https://ethereal.email'
+}
+transporter ready!
+listening at 3002
+{ username: 'raphaelmorgan', password: 'dfsfds' }
+{ latitude: 36.627019110011474, longitude: -121.92862559405316 }
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+Terminate batch job (Y/N)? 
